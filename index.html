@@ -4,9 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mairie de Bergweiler</title>
-  <link rel="stylesheet" href="style.css">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(180deg, #faf7fc 0%, #f2eef9 100%);
+      color: #222;
+      overflow-x: hidden;
+    }
     .bandeau-rouge {
       position: fixed;
       top: 0;
@@ -18,95 +24,237 @@
       padding: 0.7rem;
       font-size: 0.9rem;
       font-weight: bold;
-      font-family: 'Montserrat', sans-serif;
+      font-family: 'Poppins', sans-serif;
       box-shadow: 0 2px 8px rgba(0,0,0,0.3);
       z-index: 2000;
     }
     header {
-      margin-top: 70px;
+      background: linear-gradient(90deg, #5d2f8b, #8b4fc0);
+      position: fixed;
+      top: 65px;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 1rem;
+      display: block;
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.3s ease;
+    }
+    nav a:hover {
+      background-color: rgba(255,255,255,0.15);
+      transform: translateY(-2px);
+    }
+    nav li {
+      position: relative;
+    }
+    nav ul ul {
+      display: none;
+      position: absolute;
+      background-color: #5d2f8b;
+      border-radius: 0 0 6px 6px;
+      top: 100%;
+      left: 0;
+    }
+    nav li:hover > ul {
+      display: block;
+    }
+    .hero {
+      margin-top: 150px;
+      height: 480px;
+      background: url('entrée village.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.45);
+    }
+    .hero h1 {
+      color: #fff;
+      font-size: 3rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      text-shadow: 2px 3px 10px rgba(0,0,0,0.6);
+      position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeSlide 1.2s ease-out forwards;
+    }
+    @keyframes fadeSlide {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .container {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 2rem;
+      border-radius: 12px;
+      animation: fadeIn 1.5s ease forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .container h2 {
+      color: #5d2f8b;
+      font-family: 'Poppins', sans-serif;
+      text-align: center;
+    }
+    .container p {
+      line-height: 1.6;
+      font-size: 1.05rem;
+      text-align: justify;
+      margin-top: 1rem;
+      background: rgba(255,255,255,0.6);
+      padding: 1rem;
+      border-radius: 8px;
+      backdrop-filter: blur(4px);
+    }
+    .btn {
+      display: inline-block;
+      background-color: #7b3fa3;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      padding: 0.9rem 1.6rem;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.3s ease;
+      margin: 0.5rem;
+    }
+    .btn:hover {
+      background-color: #5d2f8b;
+      box-shadow: 0 4px 12px rgba(123,63,163,0.4);
+      transform: translateY(-3px);
+    }
+    .btn-green {
+      background-color: #6ecb63;
+      color: white;
+    }
+    .btn-green:hover {
+      background-color: #57a64e;
+      box-shadow: 0 4px 12px rgba(87,166,78,0.4);
+    }
+    footer {
+      background: #5d2f8b;
+      color: white;
+      text-align: center;
+      padding: 1.8rem;
+      font-size: 0.9rem;
+      margin-top: 4rem;
+      line-height: 1.6;
+    }
+    footer a {
+      color: #c8def8;
+      text-decoration: none;
+    }
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+        text-align: center;
+        padding: 0 1rem;
+      }
+      .container {
+        margin: 1rem;
+        padding: 1rem;
+      }
     }
   </style>
-
 </head>
+
 <body>
-
-<div class="bandeau-rouge">
-  ⚠️ Ce site représente un village entièrement fictif, conçu à titre d'exemple pour tester et voir les solutions proposées par Administ-IA.<br>
-  Toutes les photos, noms, et coordonnées sont fictives.
-</div>
-
-
-<header>
-  <nav>
-    <ul>
-      <li><a href="index.html">Accueil</a></li>
-      <li>
-        <a href="#">Le village au quotidien ▾</a>
-        <ul>
-          <li><a href="ecole.html">École</a></li>
-          <li><a href="amis-du-ried.html">Les Amis du Ried</a></li>
-          <li><a href="pompiers.html">Pompiers</a></li>
-          <li><a href="salle-polyvalente.html">Salle polyvalente</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">Histoire et patrimoine ▾</a>
-        <ul>
-          <li><a href="histoire.html">Histoire</a></li>
-          <li><a href="patrimoine.html">Patrimoine</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">Conseil municipal ▾</a>
-        <ul>
-          <li><a href="equipe.html">L’équipe</a></li>
-          <li><a href="comptes-rendus.html">Comptes-rendus</a></li>
-        </ul>
-      </li>
-      <li><a href="infos-utiles.html">Informations utiles</a></li>
-      <li><a href="contact.html">Démarches administratives : contactez-nous</a></li>
-    </ul>
-  </nav>
-</header>
-
-<section class="hero">
-  <h1>Bienvenue à Bergweiler</h1>
-</section>
-
-<div class="container">
-  <div style="text-align:center;">
-    <img src="blason bergweiler.jpg" alt="Blason de Bergweiler" style="max-width:120px;margin-bottom:1rem;">
+  <div class="bandeau-rouge">
+    ⚠️ Ce site représente un village entièrement fictif, conçu à titre d'exemple pour tester et voir les solutions proposées par Administ-IA.<br>
+    Toutes les photos, noms, et coordonnées sont fictives.
   </div>
-  <h2>Le mot du Maire</h2>
-  <p>
-    Chères habitantes, chers habitants,<br><br>
-    Bienvenue sur le site officiel de <strong>Bergweiler</strong> !  
-    Notre commune évolue et innove pour rendre la vie quotidienne plus simple et agréable.  
-    Grâce à ce site, vous bénéficiez de services pratiques et rapides :<br><br>
 
-    ✅ Un <strong>formulaire de contact</strong> en ligne, qui garantit une réponse rapide à vos demandes.<br>
-    ✅ La possibilité de <strong>réserver la salle polyvalente</strong> via un planning numérique.<br>
-    ✅ Un service pour <strong>prendre rendez-vous avec la mairie</strong> directement en ligne.<br><br>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li>
+          <a href="#">Le village au quotidien ▾</a>
+          <ul>
+            <li><a href="ecole.html">École</a></li>
+            <li><a href="amis-du-ried.html">Les Amis du Ried</a></li>
+            <li><a href="pompiers.html">Pompiers</a></li>
+            <li><a href="salle-polyvalente.html">Salle polyvalente</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Histoire et patrimoine ▾</a>
+          <ul>
+            <li><a href="histoire.html">Histoire</a></li>
+            <li><a href="patrimoine.html">Patrimoine</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#">Conseil municipal ▾</a>
+          <ul>
+            <li><a href="equipe.html">L’équipe</a></li>
+            <li><a href="comptes-rendus.html">Comptes-rendus</a></li>
+          </ul>
+        </li>
+        <li><a href="infos.html">Informations</a></li>
+        <li><a href="contact.html">Contactez-nous</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    Ce portail est pensé comme un outil de proximité, au service de la transparence et du lien entre la mairie et les habitants.  
-    Ensemble, continuons à bâtir un village dynamique, accueillant et tourné vers l’avenir.<br><br>
+  <section class="hero">
+    <h1>Bienvenue à Bergweiler</h1>
+  </section>
 
-    <strong>Le Maire,<br>Andréa Kappelmann</strong>
-  </p>
-  <div style="text-align:center;margin-top:2rem;">
-    <a href="https://tally.so/r/3xG7J9" target="_blank" class="btn">Contacter la mairie</a>
-    <a href="salle-polyvalente.html" class="btn">Réserver la salle polyvalente</a>
-    <a href="contact.html#rendezvous" class="btn" style="background-color: #5cb85c; color: white;">Demander un rendez-vous</a>
+  <div class="container">
+    <div style="text-align:center;">
+      <img src="blason bergweiler.jpg" alt="Blason de Bergweiler" style="max-width:100px;margin-bottom:1rem;">
+    </div>
+    <h2>Le mot du Maire</h2>
+    <p>
+      Chères habitantes, chers habitants,<br><br>
+      Bienvenue sur le site officiel de <strong>Bergweiler</strong> !  
+      Ce portail a été conçu pour simplifier vos démarches et vous offrir un accès rapide à l'information locale.<br><br>
+      Vous pouvez dès à présent :<br>
+      ✅ <strong>Contacter la mairie</strong> pour toute demande d’information.<br>
+      ✅ <strong>Réserver la salle polyvalente</strong> en ligne.<br>
+      ✅ <strong>Prendre rendez-vous avec nos services</strong> depuis votre ordinateur ou votre téléphone.<br><br>
+      Nous poursuivons un objectif : une commune dynamique, connectée et proche de ses habitants.<br><br>
+      <strong>Le Maire,<br>Andréa Kappelmann</strong>
+    </p>
+
+    <div style="text-align:center;margin-top:2rem;">
+      <a href="https://tally.so/r/3xG7J9" target="_blank" class="btn">Contacter la mairie</a>
+      <a href="salle-polyvalente.html" class="btn">Réserver la salle polyvalente</a>
+      <a href="contact.html#rendezvous" class="btn btn-green">Demander un rendez-vous</a>
+    </div>
   </div>
-</div>
 
-<footer>
-  <p>Mairie de Bergweiler – 12 rue Principale, 68127 Bergweiler<br>
-  📞 03 89 00 00 00 – ✉️ mairie@bergweiler.fr</p>
-  <p>Horaires : Lundi au Vendredi 9h–12h / 14h–17h</p>
-  <p>Ce site n’utilise pas de cookies.</p>
-  <p><a href="mentions-legales.html">Mentions légales</a></p>
-</footer>
-
+  <footer>
+    <p>Mairie de Bergweiler – 12 rue Principale, 68127 Bergweiler<br>
+    📞 03 89 00 00 00 – ✉️ mairie@bergweiler.fr</p>
+    <p>Horaires : Lundi au Vendredi 9h–12h / 14h–17h</p>
+    <p>Ce site n’utilise pas de cookies.</p>
+    <p><a href="mentions-legales.html">Mentions légales</a></p>
+  </footer>
 </body>
 </html>
