@@ -1,15 +1,25 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Roboto:wght@300;400;500&display=swap');
 
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
-  background-color: #f7f9fb;
+  background-color: #f9f7fb;
   color: #222;
 }
 
+.bandeau-rouge {
+  background-color: #b30000;
+  color: white;
+  text-align: center;
+  padding: 0.8rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+}
+
 header {
-  background: linear-gradient(90deg, #0055a5, #0077cc);
+  background: linear-gradient(90deg, #5e2a84, #7b3fa3);
   color: white;
   position: fixed;
   top: 0;
@@ -25,6 +35,7 @@ nav ul {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  font-family: 'Montserrat', sans-serif;
 }
 
 nav li {
@@ -40,7 +51,7 @@ nav a {
   text-decoration: none;
   padding: 1rem;
   font-weight: 500;
-  transition: background 0.3s;
+  transition: background 0.3s, color 0.3s;
 }
 
 nav li:hover > a {
@@ -50,7 +61,7 @@ nav li:hover > a {
 nav ul ul {
   display: none;
   position: absolute;
-  background-color: #0055a5;
+  background-color: #5e2a84;
   top: 100%;
   left: 0;
   min-width: 220px;
@@ -67,7 +78,7 @@ nav ul ul li a {
 }
 
 .hero {
-  margin-top: 80px;
+  margin-top: 100px;
   height: 450px;
   background: url('entrée village.jpg') center/cover no-repeat;
   display: flex;
@@ -81,12 +92,12 @@ nav ul ul li a {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0,0,0,0.4);
 }
 
 .hero h1 {
   position: relative;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-size: 3rem;
   text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
   z-index: 1;
@@ -99,21 +110,15 @@ nav ul ul li a {
   background: white;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  animation: fadeIn 0.8s ease-in;
-}
-
-@keyframes fadeIn {
-  from {opacity: 0; transform: translateY(20px);}
-  to {opacity: 1; transform: translateY(0);}
 }
 
 h2 {
-  font-family: 'Poppins', sans-serif;
-  color: #0055a5;
+  font-family: 'Montserrat', sans-serif;
+  color: #5e2a84;
 }
 
 button, .btn {
-  background-color: #3ca370;
+  background-color: #7b3fa3;
   color: white;
   border: none;
   border-radius: 6px;
@@ -121,15 +126,27 @@ button, .btn {
   font-size: 1rem;
   cursor: pointer;
   transition: transform 0.2s, background 0.3s;
+  font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
+  display: inline-block;
 }
 
 button:hover, .btn:hover {
-  background-color: #32965d;
+  background-color: #5e2a84;
   transform: translateY(-2px);
 }
 
+a {
+  color: #5e2a84;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 footer {
-  background-color: #0055a5;
+  background-color: #5e2a84;
   color: white;
   text-align: center;
   padding: 1.5rem;
@@ -140,4 +157,23 @@ footer {
 footer a {
   color: #c8def8;
   text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+  }
+
+  nav ul ul {
+    position: static;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .container {
+    margin: 1rem;
+    padding: 1rem;
+  }
 }
