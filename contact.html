@@ -25,8 +25,32 @@
     header {
       margin-top: 70px;
     }
+    iframe {
+      width: 100%;
+      height: 750px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem 2rem;
+      font-family: 'Poppins', sans-serif;
+    }
+    h2, h3 {
+      color: #5d2f8b;
+      text-align: center;
+    }
+    footer {
+      background: #5d2f8b;
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+    }
   </style>
-
 </head>
 <body>
 
@@ -35,7 +59,6 @@
   Toutes les photos, noms, et coordonnées sont fictives.
 </div>
 
-
 <header>
   <nav>
     <ul>
@@ -43,29 +66,16 @@
       <li><a href="equipe.html">Le Conseil municipal</a></li>
       <li><a href="comptes-rendus.html">Comptes-rendus</a></li>
       <li><a href="infos-utiles.html">Informations utiles</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
     </ul>
   </nav>
 </header>
 
 <div class="container">
   <h2>Contactez la mairie de Bergweiler</h2>
-  <p>Vous pouvez contacter nos services pour toute question, information ou prise de rendez-vous via les formulaires ci-dessous :</p>
+  <p style="text-align:center;">Utilisez notre formulaire de contact intelligent.</p>
 
-  <section style="margin-top:2rem;">
-    <h3>📨 Contacter la mairie</h3>
-    <p>Utilisez ce formulaire pour toute question ou demande générale :</p>
-    <div style="text-align:center;margin:1.5rem 0;">
-      <a href="https://tally.so/r/3xG7J9" target="_blank" class="btn">Ouvrir le formulaire</a>
-    </div>
-  </section>
-
-  <section id="rendezvous" style="margin-top:3rem;">
-    <h3>📅 Demander un rendez-vous</h3>
-    <p>Utilisez ce formulaire pour prendre rendez-vous avec les services municipaux :</p>
-    <div style="text-align:center;margin:1.5rem 0;">
-      <a href="#" target="_blank" class="btn" style="background-color: #5cb85c; color: white;">Formulaire de rendez-vous (à venir)</a>
-    </div>
-  </section>
+  <iframe src="https://tally.so/r/3XZjRj" loading="lazy"></iframe>
 </div>
 
 <footer>
