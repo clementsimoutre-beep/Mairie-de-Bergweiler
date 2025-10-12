@@ -4,9 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact – Mairie de Bergweiler</title>
-  <link rel="stylesheet" href="style.css">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
   <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(180deg, #faf7fc 0%, #f2eef9 100%);
+      color: #222;
+      overflow-x: hidden;
+    }
+
     .bandeau-rouge {
       position: fixed;
       top: 0;
@@ -18,30 +26,98 @@
       padding: 0.7rem;
       font-size: 0.9rem;
       font-weight: bold;
-      font-family: 'Montserrat', sans-serif;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
       z-index: 2000;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
     }
+
     header {
-      margin-top: 70px;
+      background: linear-gradient(90deg, #5d2f8b, #8b4fc0);
+      position: fixed;
+      top: 65px;
+      width: 100%;
+      z-index: 1000;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
     }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 1rem;
+      display: block;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      background-color: rgba(255,255,255,0.15);
+      transform: translateY(-2px);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 160px auto 3rem auto;
+      padding: 2rem;
+    }
+
+    .avertissement {
+      background: rgba(255,255,255,0.9);
+      border-left: 6px solid #7b3fa3;
+      padding: 2rem;
+      border-radius: 14px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      line-height: 1.7;
+      animation: fadeIn 1.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    .avertissement h3 {
+      color: #7b3fa3;
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .avertissement ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .avertissement li {
+      margin: 0.8rem 0;
+      padding-left: 1.8rem;
+      position: relative;
+    }
+
+    .avertissement li::before {
+      content: "✔";
+      color: #6ecb63;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
     iframe {
       width: 100%;
       height: 750px;
       border: none;
       border-radius: 12px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      margin-top: 2rem;
     }
-    .container {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 1rem 2rem;
-      font-family: 'Poppins', sans-serif;
-    }
-    h2, h3 {
-      color: #5d2f8b;
-      text-align: center;
-    }
+
     footer {
       background: #5d2f8b;
       color: white;
@@ -50,36 +126,63 @@
       margin-top: 3rem;
       font-size: 0.9rem;
     }
+
+    strong, b {
+      color: #5d2f8b;
+    }
+
+    .highlight {
+      background: #f9f1ff;
+      padding: 0.3rem 0.5rem;
+      border-radius: 5px;
+    }
+
   </style>
 </head>
+
 <body>
+  <div class="bandeau-rouge">
+    ⚠️ Ce site représente un village entièrement fictif, conçu à titre d'exemple pour tester et voir les solutions proposées par Administ-IA.<br>
+    Toutes les photos, noms, et coordonnées sont fictives.
+  </div>
 
-<div class="bandeau-rouge">
-  ⚠️ Ce site représente un village entièrement fictif, conçu à titre d'exemple pour tester et voir les solutions proposées par Administ-IA.<br>
-  Toutes les photos, noms, et coordonnées sont fictives.
-</div>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="equipe.html">Le Conseil municipal</a></li>
+        <li><a href="comptes-rendus.html">Comptes-rendus</a></li>
+        <li><a href="infos-utiles.html">Informations utiles</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<header>
-  <nav>
-    <ul>
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="equipe.html">Le Conseil municipal</a></li>
-      <li><a href="comptes-rendus.html">Comptes-rendus</a></li>
-      <li><a href="infos-utiles.html">Informations utiles</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
-    </ul>
-  </nav>
-</header>
+  <div class="container">
+    <div class="avertissement">
+      <h3>💡 Testez notre formulaire de contact intelligent</h3>
 
-  <iframe src="https://tally.so/r/3XZjRj" loading="lazy"></iframe>
-</div>
+      <p><em>Quelques mots avant de tester par vous-même...</em></p>
 
-<footer>
-  <p>Mairie de Bergweiler – 12 rue Principale, 68127 Bergweiler<br>
-  📞 03 89 00 00 00 – ✉️ mairie@bergweiler.fr</p>
-  <p>Horaires : Lundi au Vendredi 9h–12h / 14h–17h</p>
-  <p>Ce site n’utilise pas de cookies.</p>
-</footer>
+      <ul>
+        <li><b>Disponible 24h/24 et 7j/7</b> : un assistant intelligent qui prend en charge les demandes simples.</li>
+        <li>Il <b>épaule le secrétariat</b> et lui permet de se concentrer sur <span class="highlight">le contact humain</span> et les situations particulières.</li>
+        <li><b>Totalement personnalisable</b> : l’outil s’adapte aux spécificités de votre commune.</li>
+        <li>Il répond aux <b>questions générales réglementaires</b>, mais aussi aux <b>informations locales</b> : horaires, démarches, tarifs, événements…</li>
+        <li>Vous choisissez : <b>réponses automatiques</b> ou <b>validation manuelle</b> par le secrétariat.</li>
+        <li><b>Accessible à toutes les communes</b> – abonnement sans engagement, <span style="color:#6ecb63;font-weight:600;">tarif selon le nombre d’habitants</span>.</li>
+        <li><b>Essai gratuit</b> pour découvrir le service en conditions réelles.</li>
+      </ul>
+    </div>
 
+    <iframe src="https://tally.so/r/3XZjRj" loading="lazy"></iframe>
+  </div>
+
+  <footer>
+    <p>Mairie de Bergweiler – 12 rue Principale, 68127 Bergweiler<br>
+    📞 03 89 00 00 00 – ✉️ mairie@bergweiler.fr</p>
+    <p>Horaires : Lundi au Vendredi 9h–12h / 14h–17h</p>
+    <p>Ce site n’utilise pas de cookies.</p>
+  </footer>
 </body>
 </html>
