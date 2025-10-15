@@ -9,191 +9,110 @@
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(180deg, #faf7fc 0%, #f2eef9 100%);
       color: #222;
       overflow-x: hidden;
+      background: linear-gradient(120deg, #f4f0ff 0%, #ffffff 30%, #ffffff 70%, #f0eaff 100%);
+      background-size: 200% 200%;
+      animation: bgShift 10s ease-in-out infinite alternate;
     }
+    @keyframes bgShift { from {background-position:0% 50%} to {background-position:100% 50%} }
+
     .bandeau-rouge {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background-color: #b30000;
-      color: white;
-      text-align: center;
-      padding: 0.7rem;
-      font-size: 0.9rem;
-      font-weight: bold;
-      font-family: 'Poppins', sans-serif;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-      z-index: 2000;
+      top: 0; left: 0; width: 100%;
+      background-color: #b30000; color: white; text-align: center;
+      padding: 0.7rem; font-size: 0.9rem; font-weight: bold;
+      font-family: 'Poppins', sans-serif; box-shadow: 0 2px 8px rgba(0,0,0,0.3); z-index: 2000;
     }
-    header {
-      background: linear-gradient(90deg, #5d2f8b, #8b4fc0);
-      position: fixed;
-      top: 65px;
-      width: 100%;
-      z-index: 1000;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+
+    .header-modern {
+      position: fixed; top: 65px; width: 90%; left: 5%; z-index: 1000;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(90deg, rgba(95,45,145,0.85), rgba(140,90,210,0.85));
+      border-radius: 16px; box-shadow: 0 4px 25px rgba(0,0,0,0.2);
+      border: 1px solid rgba(255,255,255,0.1);
     }
-    nav ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      margin: 0;
-      padding: 0;
-      flex-wrap: wrap;
-    }
+
+    nav ul {list-style:none;display:flex;justify-content:center;margin:0;padding:0.3rem 0;flex-wrap:wrap;}
+    nav li {position:relative;}
     nav a {
-      color: white;
-      text-decoration: none;
-      padding: 1rem;
-      display: block;
-      font-weight: 500;
-      font-family: 'Poppins', sans-serif;
-      transition: all 0.3s ease;
+      color:white;text-decoration:none;padding:1rem 1.3rem;display:block;
+      font-weight:500;font-family:'Poppins',sans-serif;position:relative;transition:all 0.3s ease;
     }
-    nav a:hover {
-      background-color: rgba(255,255,255,0.15);
-      transform: translateY(-2px);
+    nav a::after {content:"";position:absolute;left:50%;bottom:8px;width:0%;height:3px;
+      background:linear-gradient(90deg,#ffcf00,#ff7a00);border-radius:2px;transition:all 0.3s ease;transform:translateX(-50%);
     }
-    nav li {
-      position: relative;
-    }
+    nav a:hover::after {width:50%;}
     nav ul ul {
-      display: none;
-      position: absolute;
-      background-color: #5d2f8b;
-      border-radius: 0 0 6px 6px;
-      top: 100%;
-      left: 0;
+      display:none;position:absolute;background:rgba(85,40,130,0.95);border-radius:8px;top:100%;left:0;
+      padding:0.5rem 0;backdrop-filter:blur(8px);box-shadow:0 4px 12px rgba(0,0,0,0.3);min-width:220px;
     }
-    nav li:hover > ul {
-      display: block;
-    }
+    nav li:hover>ul{display:block;}
+
     .hero {
-      margin-top: 150px;
-      height: 480px;
-      background: url('entrée village.jpg') center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow: hidden;
+      margin-top:150px;height:480px;background:url('entrée village.jpg') center/cover no-repeat;
+      display:flex;align-items:center;justify-content:center;position:relative;
     }
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.45);
-    }
+    .hero::after {content:"";position:absolute;inset:0;background:rgba(0,0,0,0.45);}
     .hero h1 {
-      color: #fff;
-      font-size: 3rem;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      text-shadow: 2px 3px 10px rgba(0,0,0,0.6);
-      position: relative;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeSlide 1.2s ease-out forwards;
+      color:#fff;font-size:3rem;font-family:'Poppins',sans-serif;font-weight:600;
+      text-shadow:2px 3px 10px rgba(0,0,0,0.6);position:relative;
     }
-    @keyframes fadeSlide {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    .container {
-      max-width: 900px;
-      margin: 3rem auto;
-      padding: 2rem;
-      border-radius: 12px;
-      animation: fadeIn 1.5s ease forwards;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .container h2 {
-      color: #5d2f8b;
-      font-family: 'Poppins', sans-serif;
-      text-align: center;
-    }
-    .container p {
-      line-height: 1.6;
-      font-size: 1.05rem;
-      text-align: justify;
-      margin-top: 1rem;
-      background: rgba(255,255,255,0.6);
-      padding: 1rem;
-      border-radius: 8px;
-      backdrop-filter: blur(4px);
-    }
-    .btn {
-      display: inline-block;
-      background-color: #7b3fa3;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      padding: 0.9rem 1.6rem;
-      font-weight: 600;
-      font-family: 'Poppins', sans-serif;
-      transition: all 0.3s ease;
-      margin: 0.5rem;
-    }
-    .btn:hover {
-      background-color: #5d2f8b;
-      box-shadow: 0 4px 12px rgba(123,63,163,0.4);
-      transform: translateY(-3px);
-    }
-    .btn-green {
-      background-color: #6ecb63;
-      color: white;
-    }
-    .btn-green:hover {
-      background-color: #57a64e;
-      box-shadow: 0 4px 12px rgba(87,166,78,0.4);
-    }
-    footer {
-      background: #5d2f8b;
-      color: white;
-      text-align: center;
-      padding: 1.8rem;
-      font-size: 0.9rem;
-      margin-top: 4rem;
-      line-height: 1.6;
-    }
-    footer a {
-      color: #c8def8;
-      text-decoration: none;
-    }
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 2rem;
-        text-align: center;
-        padding: 0 1rem;
-      }
-      .container {
-        margin: 1rem;
-        padding: 1rem;
-      }
-    }
+
+    .container {max-width:1000px;margin:3rem auto;padding:2rem;border-radius:12px;background:rgba(255,255,255,0.75);
+      backdrop-filter:blur(6px);box-shadow:0 4px 25px rgba(0,0,0,0.1);}
+
+    /* Mot du Maire */
+    .mot-maire-centre {text-align:center;background:linear-gradient(180deg,#f7f2ff 0%, #f1eaff 100%);
+      border:1px solid rgba(93,47,139,0.12);border-radius:16px;box-shadow:0 4px 20px rgba(0,0,0,0.08);
+      padding:2rem 1.5rem;margin:2rem 0 3rem;}
+    .mot-maire-centre img {width:110px;height:auto;margin-bottom:1rem;filter:drop-shadow(0 3px 8px rgba(0,0,0,0.2));}
+    .mot-maire-centre h2 {color:#5d2f8b;margin-top:0.2rem;margin-bottom:1rem;font-family:'Poppins',sans-serif;}
+    .mot-maire-centre p {text-align:justify;line-height:1.85;margin:0 auto 1rem auto;max-width:780px;}
+    .violet {color:#5d2f8b;font-weight:600;}
+    .green {color:#6ecb63;font-weight:600;}
+    .signature {margin-top:1rem;color:#5d2f8b;font-weight:700;}
+    .fonction {font-style:italic;color:#7b3fa3;}
+
+    /* Encart Administ-IA */
+    .encart-administia {margin-top:4rem;padding:2.5rem 2rem;
+      background:linear-gradient(135deg,#f4f0ff 0%,#fff6e0 100%);color:#2c2043;border-radius:16px;
+      box-shadow:0 6px 25px rgba(0,0,0,0.15);text-align:center;}
+    .encart-administia h3 {font-family:'Poppins',sans-serif;font-size:1.9rem;margin-bottom:0.5rem;color:#6ecb63;}
+    .encart-administia h4 {font-family:'Inter',sans-serif;font-weight:400;color:#7b3fa3;margin-top:0;margin-bottom:1.5rem;font-style:italic;}
+    .encart-administia p {font-size:1.05rem;line-height:1.8;max-width:880px;margin:0 auto;text-align:justify;}
+    .encart-administia strong {color:#5d2f8b;}
+    .encart-administia b {color:#d4af37;}
+    .precontact {margin-top:1.2rem;font-weight:600;color:#2c2043;}
+
+    /* Encart Contact */
+    .encart-contact {margin-top:3rem;background:linear-gradient(180deg,#faf7ff 0%,#ffffff 100%);
+      border:1px solid #d4af37;border-radius:16px;text-align:center;padding:2rem 1.5rem;
+      box-shadow:0 4px 20px rgba(0,0,0,0.05);}
+    .encart-contact h3 {color:#5d2f8b;font-size:1.7rem;margin-bottom:0.8rem;font-family:'Poppins',sans-serif;}
+    .encart-contact p {font-size:1.05rem;line-height:1.8;max-width:750px;margin:0 auto 1.5rem;color:#2c2043;}
+
+    .btn {display:inline-block;background:linear-gradient(90deg,#7b3fa3,#9c68cc);
+      color:white;text-decoration:none;border-radius:8px;padding:0.9rem 1.6rem;font-weight:600;
+      font-family:'Poppins',sans-serif;transition:all 0.3s ease;margin:0.5rem;}
+    .btn:hover {transform:translateY(-3px);box-shadow:0 6px 15px rgba(123,63,163,0.4);}
+    .btn-green {background:linear-gradient(90deg,#6ecb63,#87d977);}
+
+    footer {background:linear-gradient(90deg,#5d2f8b,#7b3fa3);color:white;text-align:center;
+      padding:2rem;font-size:0.9rem;margin-top:4rem;line-height:1.6;box-shadow:0 -3px 10px rgba(0,0,0,0.2);}
   </style>
 </head>
-
 <body>
   <div class="bandeau-rouge">
-    ⚠️ Ce site représente un village entièrement fictif, conçu à titre d'exemple pour tester et voir les solutions proposées par Administ-IA.<br>
-    Toutes les photos, noms, et coordonnées sont fictives.
+    ⚠️ Ce site représente un village fictif conçu pour démontrer les solutions d’<span class="green">Administ-IA</span>.<br>
+    Toutes les photos, noms et coordonnées sont fictifs.
   </div>
 
-  <header>
+  <header class="header-modern">
     <nav>
       <ul>
         <li><a href="index.html">Accueil</a></li>
-        <li>
-          <a href="#">Le village au quotidien ▾</a>
+        <li><a href="#">Le village au quotidien</a>
           <ul>
             <li><a href="ecole.html">École</a></li>
             <li><a href="amis-du-ried.html">Les Amis du Ried</a></li>
@@ -201,60 +120,72 @@
             <li><a href="salle-polyvalente.html">Salle polyvalente</a></li>
           </ul>
         </li>
-        <li>
-          <a href="#">Histoire et patrimoine ▾</a>
+        <li><a href="#">Histoire et patrimoine</a>
           <ul>
             <li><a href="histoire.html">Histoire</a></li>
             <li><a href="patrimoine.html">Patrimoine</a></li>
           </ul>
         </li>
-        <li>
-          <a href="#">Conseil municipal ▾</a>
+        <li><a href="#">Conseil municipal</a>
           <ul>
             <li><a href="equipe.html">L’équipe</a></li>
             <li><a href="comptes-rendus.html">Comptes-rendus</a></li>
           </ul>
         </li>
         <li><a href="infos.html">Informations</a></li>
-        <li><a href="contact.html">Contactez-nous</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="hero">
-    <h1>Bienvenue à Bergweiler</h1>
-  </section>
+  <section class="hero"><h1>Bienvenue à Bergweiler</h1></section>
 
   <div class="container">
-    <div style="text-align:center;">
-      <img src="blason bergweiler.jpg" alt="Blason de Bergweiler" style="max-width:100px;margin-bottom:1rem;">
-    </div>
-    <h2>Le mot du Maire</h2>
-    <p>
-      Chères habitantes, chers habitants,<br><br>
-      Bienvenue sur le site officiel de <strong>Bergweiler</strong> !  
-      Ce portail a été conçu pour simplifier vos démarches et vous offrir un accès rapide à l'information locale.<br><br>
-      Vous pouvez dès à présent :<br>
-      ✅ <strong>Contacter la mairie</strong> pour toute demande d’information.<br>
-      ✅ <strong>Réserver la salle polyvalente</strong> en ligne.<br>
-      ✅ <strong>Prendre rendez-vous avec nos services</strong> depuis votre ordinateur ou votre téléphone.<br><br>
-      Nous poursuivons un objectif : une commune dynamique, connectée et proche de ses habitants.<br><br>
-      <strong>Le Maire,<br>Andréa Kappelmann</strong>
-    </p>
+    <section class="mot-maire-centre">
+      <img src="blason bergweiler.jpg" alt="Blason de Bergweiler">
+      <h2>Le mot du Maire</h2>
+      <p>Chères habitantes, chers habitants,</p>
+      <p>C’est avec plaisir que je vous souhaite la bienvenue sur le site officiel de notre commune de <strong>Bergweiler</strong>.
+      Ce site, doté d'<span class="violet">outils modernes et intelligents</span> a été conçu pour être <span class="violet">pratique, vivant et proche de vous</span>, au service de la vie locale et du lien entre la mairie et les citoyens.</p>
+      <p>Conçus par <strong class="green">Administ-IA</strong>, ils ont été pensés pour vous <span class="violet">simplifier le quotidien</span>.</p>
+      <p>Je tiens à remercier toutes celles et ceux qui participent chaque jour à la vitalité de notre commune — les agents, les associations, les bénévoles, les élus et bien sûr les habitants, qui font de Bergweiler un lieu où il fait bon vivre.</p>
+      <p>Au nom de l’ensemble du conseil municipal, je vous souhaite une excellente navigation et reste à votre écoute pour toute suggestion d’amélioration ou d’initiative locale.</p>
+      <div class="signature">Andréa Kappelmann</div>
+      <div class="fonction">Maire de Bergweiler</div>
+    </section>
 
-    <div style="text-align:center;margin-top:2rem;">
-      <a href="https://tally.so/r/3xG7J9" target="_blank" class="btn">Contacter la mairie</a>
-      <a href="salle-polyvalente.html" class="btn">Réserver la salle polyvalente</a>
-      <a href="contact.html#rendezvous" class="btn btn-green">Demander un rendez-vous</a>
-    </div>
+    <section class="encart-administia">
+      <h3><span class="green">Administ-IA</span> – L’innovation au service des communes</h3>
+      <h4>Des outils simples, une aide concrète pour les secrétariats et les citoyens</h4>
+      <p>
+        Ce site illustre une <strong>mairie fictive</strong>, celle de <em>Bergweiler</em>, créée pour démontrer les possibilités qu’offre <strong>Administ-IA</strong> aux communes souhaitant moderniser leurs services à un <strong>tarif attractif et proportionné à leur taille</strong>.<br><br>
+        Grâce à Administ-IA, chaque mairie peut disposer d’un <strong>site internet moderne</strong>, simple à gérer, conforme aux exigences réglementaires et pensé pour alléger le travail des équipes municipales tout en facilitant la vie des habitants.<br><br>
+        👉 Vous pouvez ici <strong>tester plusieurs outils concrets</strong> :<br>
+        – Le <strong>formulaire de contact intelligent</strong>, capable de répondre instantanément aux questions simples des citoyens, 24h/24 et 7j/7.<br>
+        – Le <strong>système de diffusion d’informations et de bulletins communaux dématérialisés</strong>, pour les habitants qui le souhaitent.<br>
+        – Le <strong>planning de réservation de la salle communale</strong>, qui génère automatiquement les <strong>conventions de location</strong> et <strong>les factures correspondantes</strong>.<br>
+        – Le <strong>module de rendez-vous en ligne</strong>, pour une organisation plus fluide et moins chronophage.<br><br>
+        💡 <strong>Chaque solution peut être adoptée séparément</strong>, selon les besoins et les moyens de la commune, <strong>sans aucune durée d’engagement</strong>.
+        Vous n’adhérez que si vous constatez des résultats concrets et un gain réel dans votre fonctionnement quotidien.<br><br>
+        <strong>Administ-IA</strong> est disponible pour <strong>écouter les difficultés administratives</strong> de votre mairie et <strong>mettre en place des solutions adaptées</strong> afin de <strong>redonner du temps et de la sérénité</strong> aux secrétariats et aux citoyens.<br><br>
+        Entreprise <strong>locale et proche des petites communes</strong>, Administ-IA privilégie la <strong>relation humaine</strong> : accompagnement à distance quand c’est pratique, présence sur le terrain quand c’est nécessaire.
+        Parce que nous croyons qu’<strong>l’intelligence artificielle doit être au service de l’humain</strong>, pour améliorer son quotidien — pas le remplacer.
+      </p>
+      <p class="precontact">💬 <strong>Contactez Administ-IA</strong> pour mettre ces outils à votre service ou ouvrir une discussion sur d’autres possibilités d’aides.</p>
+    </section>
+
+    <section class="encart-contact">
+      <h3>Quelles sont vos difficultés ?</h3>
+      <p>Voyons ensemble comment l’IA peut vous épauler et construire des solutions sur mesure pour votre commune.</p>
+      <a href="mailto:clement@administr-ia.fr" class="btn btn-green">📧 Contacter Administ-IA</a>
+    </section>
   </div>
 
   <footer>
     <p>Mairie de Bergweiler – 12 rue Principale, 68127 Bergweiler<br>
     📞 03 89 00 00 00 – ✉️ mairie@bergweiler.fr</p>
     <p>Horaires : Lundi au Vendredi 9h–12h / 14h–17h</p>
-    <p>Ce site n’utilise pas de cookies.</p>
-    <p><a href="mentions-legales.html">Mentions légales</a></p>
+    <p><a href="mentions-legales.html" style="color:#fff;">Mentions légales</a></p>
   </footer>
 </body>
 </html>

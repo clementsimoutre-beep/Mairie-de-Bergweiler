@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>École élémentaire Les Tilleuls – Bergweiler</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(120deg, #f4f0ff 0%, #ffffff 30%, #ffffff 70%, #f0eaff 100%);
+      background-size: 200% 200%;
+      animation: bgShift 10s ease-in-out infinite alternate;
+      color: #222;
+      overflow-x: hidden;
+    }
+    @keyframes bgShift { from {background-position:0% 50%} to {background-position:100% 50%} }
+
+    .bandeau-rouge {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #b30000;
+      color: white;
+      text-align: center;
+      padding: 0.7rem;
+      font-size: 0.9rem;
+      font-weight: bold;
+      font-family: 'Poppins', sans-serif;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      z-index: 2000;
+    }
+
+    .header-modern {
+      position: fixed;
+      top: 65px;
+      width: 90%;
+      left: 5%;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(90deg, rgba(95,45,145,0.85), rgba(140,90,210,0.85));
+      border-radius: 16px;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.2);
+      border: 1px solid rgba(255,255,255,0.1);
+      animation: headerFade 1s ease forwards;
+    }
+    @keyframes headerFade { from {opacity:0;transform:translateY(-20px)} to {opacity:1;transform:translateY(0)} }
+
+    nav ul {list-style:none;display:flex;justify-content:center;margin:0;padding:0.3rem 0;flex-wrap:wrap;}
+    nav li {position:relative;}
+    nav a {
+      color:white;
+      text-decoration:none;
+      padding:1rem 1.3rem;
+      display:block;
+      font-weight:500;
+      font-family:'Poppins',sans-serif;
+      position:relative;
+      transition:all 0.3s ease;
+    }
+    nav a::after {
+      content:"";
+      position:absolute;
+      left:50%;
+      bottom:8px;
+      width:0%;
+      height:3px;
+      background:linear-gradient(90deg,#ffcf00,#ff7a00);
+      border-radius:2px;
+      transition:all 0.3s ease;
+      transform:translateX(-50%);
+    }
+    nav a:hover::after {width:50%;}
+    nav a:hover {transform:translateY(-2px);text-shadow:0 0 8px rgba(255,255,255,0.4);}
+    nav ul ul {
+      display:none;
+      position:absolute;
+      background:rgba(85,40,130,0.95);
+      border-radius:8px;
+      top:100%;
+      left:0;
+      padding:0.5rem 0;
+      backdrop-filter:blur(8px);
+      box-shadow:0 4px 12px rgba(0,0,0,0.3);
+      min-width:220px;
+    }
+    nav li:hover>ul{display:block;}
+    nav ul ul li a{padding:0.8rem 1.5rem;white-space:nowrap;}
+
+    .container {
+      max-width: 1100px;
+      margin: 160px auto 3rem auto;
+      padding: 2rem;
+      background: rgba(255,255,255,0.8);
+      border-radius: 16px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    }
+
+    .photo-ecole {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      margin-bottom: 2rem;
+    }
+
+    h1 {color:#5d2f8b;text-align:center;margin-bottom:1rem;}
+    h2 {color:#7b3fa3;margin-top:2rem;border-left:4px solid #d4af37;padding-left:0.8rem;}
+
+    /* 🎓 Appliquer l’emoji uniquement dans le contenu, pas dans le menu */
+    .container ul {list-style:none;padding:0;line-height:1.8;}
+    .container li::before {content:"🎓 ";}
+
+    .encart-info, .encart-perisco {
+      background: linear-gradient(90deg, #fdf7e3, #fff9e9);
+      border-left: 6px solid #d4af37;
+      border-radius: 12px;
+      padding: 1.5rem 2rem;
+      margin-top: 3rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    }
+
+    .encart-perisco {
+      background: linear-gradient(90deg, #f3ecff, #f8f5ff);
+      border-left: 6px solid #7b3fa3;
+    }
+
+    footer {
+      border-top: 3px solid #d4af37;
+      background: linear-gradient(90deg, #5d2f8b, #8b4fc0);
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bandeau-rouge">
+    ⚠️ Ce site représente un village entièrement fictif, conçu à titre d'exemple pour tester et voir les solutions proposées par Administ-IA.<br>
+    Toutes les photos, noms, et coordonnées sont fictives.
+  </div>
+
+  <header class="header-modern">
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="#">Le village au quotidien</a>
+          <ul>
+            <li><a href="ecole.html" class="active">École</a></li>
+            <li><a href="amis-du-ried.html">Les Amis du Ried</a></li>
+            <li><a href="pompiers.html">Pompiers</a></li>
+            <li><a href="salle-polyvalente.html">Salle polyvalente</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Histoire et patrimoine</a>
+          <ul>
+            <li><a href="histoire.html">Histoire</a></li>
+            <li><a href="patrimoine.html">Patrimoine</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Conseil municipal</a>
+          <ul>
+            <li><a href="equipe.html">L’équipe</a></li>
+            <li><a href="comptes-rendus.html">Comptes-rendus</a></li>
+          </ul>
+        </li>
+        <li><a href="infos.html">Informations</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>École élémentaire Les Tilleuls</h1>
+    <img src="école les tilleuls.jpg" alt="École Les Tilleuls de Bergweiler" class="photo-ecole">
+
+    <h2>Organisation pédagogique</h2>
+    <p>📚 <strong>4 classes – 92 élèves</strong></p>
+    <ul>
+      <li><b>Classe 1 :</b> Petite et Moyenne Section (PS–MS) — <em>Enseignante :</em> Mme Eliane Schottler — <em>ATSEM :</em> Mme Louise Drexler</li>
+      <li><b>Classe 2 :</b> Grande Section – CP — <em>Enseignante :</em> Mme Hélène Wurtzmann</li>
+      <li><b>Classe 3 :</b> CE1 – CE2 — <em>Enseignant :</em> M. Adrien Falkenberg</li>
+      <li><b>Classe 4 :</b> CM1 – CM2 — <em>Enseignante et directrice :</em> Mme Isabelle Kronthal</li>
+    </ul>
+
+    <div class="encart-info">
+      <h2>📍 Informations pratiques</h2>
+      <p><b>Adresse :</b> 5 rue des Écoles, 68127 Bergweiler</p>
+      <p><b>Téléphone :</b> 09 87 65 43 21</p>
+      <p><b>Courriel :</b> <a href="mailto:05888j@ac-nancy.fr" style="color:#5d2f8b;font-weight:600;text-decoration:none;">05888j@ac-nancy.fr</a></p>
+      <p><b>Horaires :</b> 8h00–11h30 et 13h30–16h00<br>Jours : lundi, mardi, jeudi et vendredi</p>
+    </div>
+
+    <div class="encart-perisco">
+      <h2>🎒 Périscolaire Les Petits Aventuriers</h2>
+      <p><b>Adresse :</b> 8 rue des Écoles, 67220 Bergweiler</p>
+      <p><b>Contact :</b> 03 88 75 24 10 / <a href="mailto:periscolaire.aventuriers@ville-bergweiler.fr" style="color:#7b3fa3;font-weight:600;text-decoration:none;">periscolaire.aventuriers@ville-bergweiler.fr</a></p>
+      <p><b>Responsable :</b> Sophie Müller — Directrice du périscolaire</p>
+      <p><b>Horaires :</b> Matin 7h30–8h30 / Midi 11h30–13h30 / Soir 16h15–18h30 / Mercredi 7h30–18h</p>
+      <p><b>Concept :</b> Accueil des enfants de la maternelle au CM2 avant et après la classe, ainsi que les mercredis toute la journée.<br>
+      L’équipe propose des activités éducatives autour de la nature, de la créativité et du vivre-ensemble.<br>
+      Les repas sont préparés avec des produits locaux.</p>
+      <p><b>Activités proposées :</b> ateliers créatifs, aide aux devoirs, jeux collectifs, jardinage, sorties.</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>Mairie de Bergweiler – 12 rue Principale, 68127 Bergweiler<br>
+    📞 03 89 00 00 00 – ✉️ mairie@bergweiler.fr</p>
+    <p>Horaires : Lundi au Vendredi 9h–12h / 14h–17h</p>
+    <p>Ce site n’utilise pas de cookies.</p>
+  </footer>
+</body>
+</html>
